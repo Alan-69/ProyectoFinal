@@ -1,0 +1,29 @@
+{% extends 'AppAlan/base.html' %}
+
+{% load static %}
+
+{% block title %} Formulario - Registrar Profesor {% endblock title %}
+
+
+{% block main %}
+
+            <!-- Call to Action-->
+            <div class="card text-white bg-primary my-5 py-4 text-center">
+                <div class="card-body"><p class="text-white m-0">Para registrar un nuevo profesor complete los campos vacíos.</p></div>
+            </div>
+            <div class="row gx-4 gx-lg-5">
+                            <h2 class="card-title"></h2>
+                            <p class="card-text"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <form action="/profesor-formulario/" method="POST">
+                    {% csrf_token %}
+                    <p>Nombre: <input type="text" name="nombre"></p>
+                    <p>Apellido: <input type="text" name="apellido"></p>
+                    <input type="submit" value="Enviar">
+            
+            </form>
+            
+{% endblock main %}

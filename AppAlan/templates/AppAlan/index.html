@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Tercera_pre-entrega_Martin</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'AppAlan/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container px-5">
+                <a class="navbar-brand" href="#!">Bienvenido!</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Cursos' %}">Cursos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Profesores' %}">Profesores</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Estudiantes' %}">Estudiantes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Entregables' %}">Entregables</a></li>
+                    </ul>
+                    <a class="btn btn-primary" href="{% url 'Login' %}">Login</a>
+                    <a class="btn btn-primary" href="{% url 'Register' %}">Registro</a>
+                    <a class="btn btn-primary" href="{% url 'Logout' %}">Logout</a>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Content-->
+        <div class="container px-4 px-lg-5">
+            <!-- Heading Row-->
+            <div class="row gx-4 gx-lg-5 align-items-center my-5">
+                <div class="col-lg-5">
+                    <h1 class="font-weight-light">Emprendimiento para Programadores</h1>
+                    <p>Aprendé a Programar desde cero — ¡Sé un programador! | Todos los años aumenta la demanda de programadores en todo el mundo.</p>
+                    <a class="btn btn-primary" href="#!">Suscribirme!</a>
+                </div>
+            </div>
+            <!-- Call to Action-->
+            <div class="card text-white bg-secondary my-5 py-4 text-center">
+                <div class="card-body"><p class="text-white m-0">Puedes realizar la búsqueda de todos los cursos disponibles en la casilla de abajo.</p></div>
+            </div>
+            <!-- Content Row-->
+
+            <form method="GET" action="">
+                {{ formulario.as_p }}
+                <button type="submit">Buscar</button>
+            </form>
+            
+            <h2>Resultados de búsqueda</h2>
+            <ul>
+                {% for curso in resultados %}
+                    <li>{{ curso.nombre }}</li>  <!-- Muestra los campos relevantes -->
+                {% empty %}
+                    <li>No se encontraron cursos.</li>
+                {% endfor %}
+            </ul>
+            
+
+                </div>
+                <div class="col-md-20 mb-0">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title"></h2>
+                            <p class="card-text">“Siempre escribe tu código como si la persona que lo fuera a mantener fuera un peligroso psicópata que sabe quien eres y donde vives”</p>
+                        </div>
+                    </div>
+                </div>
+
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; 3ra_pre-entrega_Martin 2024</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

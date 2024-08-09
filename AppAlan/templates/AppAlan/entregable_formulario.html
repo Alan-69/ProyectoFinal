@@ -1,0 +1,21 @@
+{% extends 'AppAlan/base.html' %}
+
+{% load static %}
+
+{% block title %} Formulario - Entregable {% endblock title %}
+
+{% block main %}
+
+    <form action="/entregable-formulario/" method="POST">
+        {% csrf_token %}
+        <p>Nombre: <input type="text" name="nombre"></p>
+        <p>Fecha de entrega: <input type="text" name="fecha_de_entrega"></p>
+        <p>Entregado: <input type="text" name="entregado"></p>
+        <input type="submit" value="Enviar">
+        
+
+    </form>
+
+    
+
+{% endblock main %}

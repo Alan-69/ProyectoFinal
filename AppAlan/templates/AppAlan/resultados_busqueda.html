@@ -1,0 +1,25 @@
+{% extends 'AppAlan/base.html' %}
+
+{% load static %}
+
+{% block title %} Busqueda - Curso {% endblock title %}
+
+{% block main %}
+
+<form method="GET" action="">
+    {{ formulario.as_p }}
+    <button type="submit">Buscar</button>
+</form>
+
+<h2>Resultados de búsqueda</h2>
+<ul>
+    {% for curso in resultados %}
+        <li>{{ curso.nombre }}</li>  <!-- Muestra los campos relevantes -->
+    {% empty %}
+        <li>No se encontraron cursos.</li>
+    {% endfor %}
+</ul>
+
+
+
+{% endblock main %}

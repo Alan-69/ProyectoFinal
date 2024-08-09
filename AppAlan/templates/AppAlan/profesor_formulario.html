@@ -1,0 +1,17 @@
+{% extends 'AppAlan/base.html' %}
+
+{% load static %}
+
+{% block title %} Formulario - Registrar Profesor {% endblock title %}
+
+{% block main %}
+
+    <form action="/profesor-formulario/" method="POST">
+        {% csrf_token %}
+        <p>Nombre: <input type="text" name="nombre"></p>
+        <p>Apellido: <input type="text" name="apellido"></p>
+        <input type="submit" value="Enviar">
+
+    </form>
+
+{% endblock main %}
