@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %} Registro {% endblock title %}
+{% block title %} Editar pass {% endblock title %}
 
 {% block main %}
 
@@ -10,14 +10,12 @@
 
         <div class="d-flex flex-column">
             
-            <p class="fs-5 fw-bold">{{ msg_register }}</p>
-            
             <form action="" method="POST">
                 {% csrf_token %}
                 <table>
-                    {{ form.as_table }}
+                    {{ form }}
                 </table>
-                <input type="submit" value="Registrarse">
+                <input type="submit" value="Guardar Pass">
 
             </form>
 

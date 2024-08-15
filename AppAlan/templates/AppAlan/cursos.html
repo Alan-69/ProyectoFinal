@@ -7,15 +7,22 @@
 
 {% block main %}
 
-            <!-- Call to Action-->
-            <div class="card text-white bg-primary my-5 py-4 text-center">
-                <div class="card-body"><p class="text-white m-0">Estos son algunos de nuestros cursos disponibles:</p></div>
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 align-items-center my-5">
+                <div class="col-lg-5">
+                    <h1 class="font-weight-light">Nuestros Cursos:</h1>
+                    <p>Cualquiera que elijas te abrirá muchas puertas a futuro!</p>
+                </div>
             </div>
             <div class="row gx-4 gx-lg-5">
                 <div class="col-md-4 mb-5">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h2 class="card-title">Python</h2>
+                            <h2 class="card-title"></h2>
+                            <img src="{% static 'AppAlan/images/pythonlogo.png' %}">
                             <p class="card-text">Aprende a programar con Python! Curso intensivo y práctico para iniciar tus conocimientos en el arte de la programación!</p>
                         </div>
                     </div>
@@ -24,29 +31,49 @@
                     <div class="col-md-4 mb-5">
                         <div class="card h-100">
                             <div class="card-body">
-                            <h2 class="card-title">Django</h2>
+                            <h2 class="card-title"></h2>
+                            <img src="{% static 'AppAlan/images/djangologo.png' %}">
                             <p class="card-text">Organiza y escribe tu código de manera más eficiente y reduce significativamente el tiempo de desarrollo web con módulos reutilizables!</p>
                             </div>
                         </div>
-                    </div>
+                </div>
 
-                    <div class="col-md-4 mb-5">
+                <div class="col-md-4 mb-5">
                         <div class="card h-100">
                             <div class="card-body">
-                            <h2 class="card-title">JavaScript</h2>
+                            <h2 class="card-title"></h2>
+                            <img src="{% static 'AppAlan/images/jslogo.png' %}">
                             <p class="card-text">Desde actualizar fuentes de redes sociales a mostrar animaciones y mapas interactivos, las funciones de este lenguaje pueden mejorar la experiencia del usuario en un sitio web.</p>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <a class="btn btn-primary" href="{% url 'Cursos_Todos' %}">Ver más...</a>
+            </div>
+        </div>
+
+                
+                
+                <div class="card text-white bg-primary my-5 py-4 text-center">
+                    <div class="card-body"><p class="text-white m-0">Puedes solicitar un nuevo curso y camada completando el siguiente formulario.</p></div>
+                </div>
+                <div class="row gx-4 gx-lg-5">
+                    <h2 class="card-title"></h2>
+                    <p class="card-text"></p>
+                </div>
+            </div>
+        </div>
 
                     <form action="/curso-formulario/" method="POST">
                         {% csrf_token %}
+                        
                         <p>Curso: <input type="text" name="curso"></p>
                         <p>Camada: <input type="text" name="camada"></p>
-                
+                        
                         <input type="submit" value="Enviar">
                 
-                    </form>
+                </form>
 
 {% endblock main %}
 

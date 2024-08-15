@@ -1,7 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login, authenticate
-from users.forms import UserRegisterForm
+from django.contrib.auth import login, authenticate, logout
+from users.forms import UserRegisterForm, UserEditForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import PasswordChangeView
+from django.urls import reverse_lazy
+from users.models import Avatar
 # Create your views here.
 
 def login_request(request):
@@ -19,7 +24,8 @@ def login_request(request):
             
             if user is not None:
                 login(request, user)
-                return render(request, "AppAlan/index.html")
+                return render(request, "AppAlan/index.html", {"mensaje":f"Bienvenido {usuario}"})
+            
             
         msg_login = "Usuario o contraseña incorrectos"
         
@@ -40,3 +46,28 @@ def register(request):
         
     form = UserRegisterForm()
     return render(request,"users/registro.html", {"form":form, "msg_register":msg_register})
+
+@login_required
+def editar_usuario(request):
+    usuario = request.user
+    if request.method == "POST":
+        formulario = UserEditForm(request.POST, request.FILES, instance=usuario)
+        if formulario.is_valid():
+            if formulario.cleaned_data.get("imagen"):
+                avatar = Avatar(user=usuario, imagen=formulario.cleaned_data.get("imagen"))
+                #usuario.avatar.imagen = formulario.cleaned_data.get("imagen")
+                avatar.save()
+            formulario.save()
+            return render(request, "AppAlan/index.html")
+        pass
+    else:
+        formulario = UserEditForm(instance=usuario)
+        
+    return render(request,"users/editar_usuario.html", {"form": formulario})
+
+def logout_view(request):
+    logout(request)
+    return redirect('Inicio')
+class CambiarPassView(LoginRequiredMixin, PasswordChangeView):
+    template_name = "users/cambiar_pass.html"
+    succes_url = reverse_lazy("EditarUsuario")

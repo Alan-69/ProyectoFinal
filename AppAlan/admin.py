@@ -1,5 +1,5 @@
 from django.contrib import admin
-from AppAlan.models import Curso,Estudiante,Profesor,Entregable
+from .models import Curso,Estudiante,Profesor,Entregable
 
 # Register your models here.
 admin.site.register(Curso)

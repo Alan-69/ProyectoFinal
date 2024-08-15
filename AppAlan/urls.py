@@ -1,4 +1,7 @@
-from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+from django.contrib import admin
+from django.urls import include, path
 from AppAlan import views
 
 urlpatterns = [
@@ -16,4 +19,8 @@ urlpatterns = [
     path('entregable-formulario/', views.entregable_formulario, name="EntregableFormulario"),
     path('form-con-api/', views.form_con_api, name="FormConApi"),
     path('buscar-form-con-api/', views.buscar_form_con_api, name="Buscar_Form_Con_Api"),
+    path('curso-list/', views.CursoListView.as_view, name="CursoListView"),
+    path('about/', views.about, name="About"),
+    path('cursos-todos/', views.cursos_todos, name="Cursos_Todos")
 ]
+

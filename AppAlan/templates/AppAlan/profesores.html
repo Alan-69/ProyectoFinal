@@ -7,23 +7,41 @@
 
 {% block main %}
 
-            <!-- Call to Action-->
-            <div class="card text-white bg-primary my-5 py-4 text-center">
-                <div class="card-body"><p class="text-white m-0">Para registrar un nuevo profesor complete los campos vacíos.</p></div>
-            </div>
-            <div class="row gx-4 gx-lg-5">
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+
+                <div class="container px-4 px-lg-5">
+                    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+                        <div class="col-lg-5">
+                            <h1 class="font-weight-light">Clases personalizadas y en vivo.</h1>
+                            <p>Contamos con profesores y tutores con experiencia tanto programando como enseñando a programar para ayudarte en tu cursada.</p>
+
+                        </div>
+                    <div class="col-md-4 mb-5">
+                            <div class="card-body">
                             <h2 class="card-title"></h2>
+                            <img src="{% static 'AppAlan/images/profesor.jpg' %}">
                             <p class="card-text"></p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="card text-white bg-primary my-5 py-4 text-center">
+                    <div class="card-body"><p class="text-white m-0">Para registrar un nuevo profesor completa los campos vacíos.</p></div>
+                </div>
+                <div class="row gx-4 gx-lg-5">
+                    <h2 class="card-title"></h2>
+                    <p class="card-text"></p>
+                </div>
+            </div>
+        </div>
 
-                <form action="/profesor-formulario/" method="POST">
-                    {% csrf_token %}
-                    <p>Nombre: <input type="text" name="nombre"></p>
-                    <p>Apellido: <input type="text" name="apellido"></p>
-                    <input type="submit" value="Enviar">
+        <form action="/profesor-formulario/" method="POST">
+        {% csrf_token %}
+            <p>Nombre: <input type="text" name="nombre"></p>
+            <p>Apellido: <input type="text" name="apellido"></p>
+            <input type="submit" value="Enviar">
             
-            </form>
+    </form>
             
 {% endblock main %}

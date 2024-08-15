@@ -2,6 +2,15 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from AppAlan.models import *
 from AppAlan.forms import *
+from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+from .models import Curso
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .models import Curso, Estudiante, Profesor, Entregable
+from django.urls import reverse_lazy
 
 def inicio(request):
     return render(request, "AppAlan/index.html")
@@ -14,7 +23,7 @@ def profesores(request):
 
 def estudiantes(request):
     return render(request, "AppAlan/estudiantes.html")
-
+@login_required
 def entregables(request):
     return render(request, "AppAlan/entregables.html")
 
@@ -138,3 +147,20 @@ def inicio(request):
             resultados = Curso.objects.filter(nombre__icontains=consulta)  # Filtrar por el campo adecuado
 
     return render(request, 'AppAlan/index.html', {'formulario': formulario, 'resultados': resultados})
+
+@login_required
+def about(request):
+    return render(request, "AppAlan/about.html")
+class CursoListView(LoginRequiredMixin, ListView):
+    model = Curso
+    template_name = "AppAlan/curso_list.html"
+    
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
+    
+    
+class CursoDetailView(DetailView):
+    model = Curso
+    
+def cursos_todos(request):
+    return render(request, "AppAlan/cursos_todos.html")

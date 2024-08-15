@@ -1,0 +1,90 @@
+{% extends 'AppAlan/base.html' %}
+
+{% load static %}
+
+{% block title %} Cursos Todos {% endblock title %}
+
+
+{% block main %}
+
+
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 align-items-center my-5">
+                <div class="col-lg-5">
+                    <h1 class="font-weight-light">Nuestros Cursos:</h1>
+                    <p>Cualquiera que elijas te abrirá muchas puertas a futuro!</p>
+                </div>
+            </div>
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title"></h2>
+                            <img src="{% static 'AppAlan/images/pythonlogo.png' %}">
+                            <p class="card-text">Aprende a programar con Python! Curso intensivo y práctico para iniciar tus conocimientos en el arte de la programación!</p>
+                        </div>
+                    </div>
+                </div>
+
+                    <div class="col-md-4 mb-5">
+                        <div class="card h-100">
+                            <div class="card-body">
+                            <h2 class="card-title"></h2>
+                            <img src="{% static 'AppAlan/images/djangologo.png' %}">
+                            <p class="card-text">Organiza y escribe tu código de manera más eficiente y reduce significativamente el tiempo de desarrollo web con módulos reutilizables!</p>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="col-md-4 mb-5">
+                        <div class="card h-100">
+                            <div class="card-body">
+                            <h2 class="card-title"></h2>
+                            <img src="{% static 'AppAlan/images/jslogo.png' %}">
+                            <p class="card-text">Desde actualizar fuentes de redes sociales a mostrar animaciones y mapas interactivos, las funciones de este lenguaje pueden mejorar la experiencia del usuario en un sitio web.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row gx-4 gx-lg-5">
+                    <div class="col-md-4 mb-5">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h2 class="card-title"></h2>
+                                <img src="{% static 'AppAlan/images/rustlogo.png' %}">
+                                <p class="card-text">Rust es un lenguaje de programación desarrollado por Mozilla, que sirve para escribir herramientas de línea de comandos, aplicaciones web y programas de red. Además, este lenguaje se puede emplear para la programación de bajo nivel.</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                        <div class="col-md-4 mb-5">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                <h2 class="card-title"></h2>
+                                <img src="{% static 'AppAlan/images/csharplogo.png' %}">
+                                <p class="card-text">C# es un lenguaje de programación que ha dejado una marca significativa en el mundo del desarrollo de software. Su combinación de orientación a objetos, seguridad, versatilidad y facilidad de uso lo hace un lenguaje de elección para una amplia gama de aplicaciones y proyectos.</p>
+                                </div>
+                            </div>
+                    </div>
+    
+                    <div class="col-md-4 mb-5">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                <h2 class="card-title"></h2>
+                                <img src="{% static 'AppAlan/images/htmllogo.png' %}">
+                                <p class="card-text">HTML es la abreviatura de hypertext markup language, el lenguaje central de la World Wide Web. Originalmente diseñado como un lenguaje para explicar semánticamente documentos científicos, se ha adaptado para describir la estructura básica de páginas web y aplicaciones en línea.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                <a class="btn btn-primary" href="{% url 'Register' %}">Suscribirme!</a>
+            </div>
+        </div>
+
+
+{% endblock main %}
+
